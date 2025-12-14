@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UniSuporte - A plataforma #1 de apoio académico e técnico para estudantes universitários em Angola">
+    <title>UniSuporte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">UNISUPORTE</div>
+                    <ul class="nav-menu">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#embaixadores">Embaixadores</a></li>
+                        <li><a href="#contato">Contacto</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <button class="theme-toggle" aria-label="Alternar tema" id="themeToggle">
+                            <svg class="theme-icon theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg class="theme-icon theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                        <button class="btn btn-nav btn-outline" onclick="window.location.href='login.html'">Entrar</button>
+                        <button class="btn btn-nav btn-primary" onclick="window.location.href='cliente.html'">Área Cliente</button>
+                    </div>
+                    <button class="menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="scroll-indicator"></div>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-bg-shapes">
+                <div class="bg-shape bg-shape-1"></div>
+                <div class="bg-shape bg-shape-2"></div>
+                <div class="bg-shape bg-shape-3"></div>
+            </div>
+            <div class="grid-pattern"></div>
+            <div class="container">
+                <div class="hero-layout">
+                    <div class="hero-content">
+                        <div class="hero-chips">
+                            <span class="chip chip-location">Angola</span>
+                            <span class="chip chip-availability">24h Online</span>
+                        </div>
+                        <h1 class="hero-title">Suporte académico e técnico especializado para universitários em Angola</h1>
+                        <div class="hero-badges">
+                            <div class="trust-badge">
+                                <span class="badge-text">100% Confidencial</span>
+                            </div>
+                            <div class="trust-badge">
+                                <span class="badge-text">+5.000 Trabalhos Entregues</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-form-container">
+                        <div class="quick-quote-form">
+                            <div class="form-header">
+                                <h3>Orçamento Rápido</h3>
+                                <p class="form-subtitle">Resposta em menos de <strong>8 segundos</strong></p>
+                            </div>
+                            <form id="quickQuoteForm" class="quote-form">
+                                <div class="form-group">
+                                    <label for="service-type">Tipo de Serviço</label>
+                                    <select id="service-type" name="service-type" required>
+                                        <option value="">Selecione um serviço...</option>
+                                        
+                                        <optgroup label="Elaboração de Trabalhos Académicos">
+                                            <option value="elaboracao-com-conteudo">Elaboração com conteúdo fornecido (5,000 Kz)</option>
+                                            <option value="elaboracao-sem-conteudo">Elaboração sem conteúdo (10,000 Kz)</option>
+                                            <option value="revisao-formatacao">Revisão + formatação (2,000 Kz)</option>
+                                            <option value="tcc">Trabalho de Conclusão de Curso - TCC (25,000 Kz)</option>
+                                            <option value="trabalhos-pequenos">Trabalhos pequenos (3,000 Kz)</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Criação de Slides de Apresentação">
+                                            <option value="slides-simples">Apresentação simples (3,000 Kz)</option>
+                                            <option value="slides-academica">Apresentação académica estruturada (5,000 Kz)</option>
+                                            <option value="slides-premium">Slides premium com gráficos e design (7,500 Kz)</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Suporte Técnico">
+                                            <option value="diagnostico-rapido">Diagnóstico rápido (1,000 Kz)</option>
+                                            <option value="configuracao-software">Configuração de software (2,000 Kz)</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Remoção de Vírus e Problemas de Sistema">
+                                            <option value="limpeza-simples">Limpeza simples (3,000 Kz)</option>
+                                            <option value="remocao-completa">Remoção completa de malware/spyware (5,000 Kz)</option>
+                                            <option value="recuperacao-sistema">Recuperação de sistema danificado (7,000 Kz)</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Instalação de Programas Académicos">
+                                            <option value="office">Pacote Office (3,000 Kz)</option>
+                                            <option value="autocad">AutoCAD (5,000 Kz)</option>
+                                            <option value="spss">SPSS (5,000 Kz)</option>
+                                            <option value="photoshop">PhotoShop (5,000 Kz)</option>
+                                            <option value="matlab">MATLAB (5,000 Kz)</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Otimização de Computadores Lentos">
+                                            <option value="limpeza-basica">Limpeza básica (3,000 Kz)</option>
+                                            <option value="otimizacao-total">Otimização total (arranque, apps, disco) (5,000 Kz)</option>
+                                            <option value="otimizacao-avancada">Otimização + remoção de lixo do sistema (6,000 Kz)</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Instalação de Sistemas Operativos">
+                                            <option value="windows">Windows (instalação + drivers) (6,000 Kz)</option>
+                                            <option value="linux">Linux (Ubuntu, Mint) (6,000 Kz)</option>
+                                            <option value="macos">macOS (processo mais complexo) (8,000 Kz)</option>
+                                            <option value="instalacao-backup">Instalação + backup dos ficheiros (10,000 Kz)</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Criação de CVs Profissionais">
+                                            <option value="cv-basico">Criação de CV (600 Kz)</option>
+                                            <option value="cv-premium">CV premium com design personalizado (1,200 Kz)</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Conversão de Ficheiros">
+                                            <option value="pdf-word">PDF para Word (200 Kz)</option>
+                                            <option value="word-pdf">Word para PDF (200 Kz)</option>
+                                            <option value="imagem-pdf">Imagem para PDF (200 Kz)</option>
+                                            <option value="pdf-imagem">PDF para Imagem (200 Kz)</option>
+                                            <option value="conversao-avancada">Conversão avançada com manutenção de formatação (1,000 Kz)</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Edição de PDFs">
+                                            <option value="assinar-pdf">Assinar PDF (200 Kz)</option>
+                                            <option value="juntar-pdfs">Juntar PDFs (200 Kz)</option>
+                                            <option value="dividir-pdfs">Dividir PDFs (200 Kz)</option>
+                                            <option value="edicao-basica">Edição básica (200 Kz)</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                
+                                <!-- Service Details Section -->
+                                <div id="service-details" class="service-details-section" style="display: none;">
+                                    <div class="details-header">
+                                        <h4>📋 Detalhes do Serviço</h4>
+                                    </div>
+                                    <div id="details-content" class="details-content">
+                                        <!-- Dynamic content will be inserted here -->
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="deadline">Prazo</label>
+                                    <select id="deadline" name="deadline" required>
+                                        <option value="">Selecione...</option>
+                                        <option value="urgent">Urgente (24h)</option>
+                                        <option value="fast">Rápido (3 dias)</option>
+                                        <option value="normal">Normal (7 dias)</option>
+                                        <option value="flexible">Flexível (15+ dias)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-submit">
+                                    <span class="btn-text">Obter Orçamento</span>
+                                    <span class="btn-loader"></span>
+                                </button>
+                                <p class="form-note">⚡ Resposta instantânea via email</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Modal -->
+        <div id="payment-modal" class="payment-modal" style="display: none;">
+            <div class="payment-modal-overlay" onclick="closePaymentModal()"></div>
+            <div class="payment-modal-content">
+                <button class="payment-modal-close" onclick="closePaymentModal()" aria-label="Fechar">×</button>
+                <div class="payment-header">
+                    <h3>💳 Informações de Pagamento</h3>
+                    <p class="payment-subtitle">Complete o pagamento para finalizar sua encomenda</p>
+                </div>
+                
+                <div class="payment-info-card">
+                    <div class="payment-method">
+                        <div class="payment-method-header">
+                            <div class="payment-icon">📱</div>
+                            <div>
+                                <h4>Multicaixa Express</h4>
+                                <p class="payment-method-desc">Transferência para número de telefone</p>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-details">
+                            <div class="payment-detail-item">
+                                <span class="detail-label">Número:</span>
+                                <span class="detail-value" id="payment-phone">941087293</span>
+                                <button class="btn-copy-small" onclick="copyPaymentPhone()" title="Copiar número">
+                                    <span>📋</span>
+                                </button>
+                            </div>
+                            <div class="payment-detail-item">
+                                <span class="detail-label">Valor:</span>
+                                <span class="detail-value payment-amount" id="payment-amount">-</span>
+                            </div>
+                            <div class="payment-detail-item">
+                                <span class="detail-label">Moeda:</span>
+                                <span class="detail-value">Kwanza (Kz)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-instructions">
+                    <h5>📋 Instruções:</h5>
+                    <ol class="instructions-list">
+                        <li>Abra a aplicação Multicaixa Express no seu telefone</li>
+                        <li>Selecione "Transfência Express</li>
+                        <li>Digite o número: <strong>941087293</strong></li>
+                        <li>Confirme o valor e complete a transferência</li>
+                        <li>Envie o comprovativo via WhatsApp</li>
+                    </ol>
+                </div>
+
+                <div class="payment-proof-section">
+                    <h5>📸 Enviar Comprovativo</h5>
+                    <p class="proof-note">Após realizar o pagamento, envie o comprovativo via WhatsApp para confirmação manual</p>
+                    
+                    <a href="https://wa.me/244953369356?text=Olá! Acabei de fazer o pagamento e gostaria de enviar o comprovativo." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-whatsapp-proof">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.5rem;">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        Enviar Comprovativo via WhatsApp
+                    </a>
+                </div>
+
+                <div class="payment-status">
+                    <p class="status-note">⏳ Aguardando confirmação manual do pagamento pelo administrador</p>
+                </div>
+            </div>
+        </div>
+
+        <section id="como-funciona" class="section section-alt">
+            <div class="section-bg-shapes">
+                <div class="bg-shape bg-shape-8"></div>
+            </div>
+            <div class="container">
+                <h2 class="section-title">Como <span class="title-highlight">Funciona</span></h2>
+                <p class="section-subtitle">4 passos simples para obter o suporte académico que <span class="subtitle-underline">precisa</span></p>
+                
+                <div class="how-it-works">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Solicitação</h3>
+                        <p class="step-description">Preencha o formulário detalhando o serviço que precisa.</p>
+                    </div>
+                    
+                    <div class="step-connector">
+                        <div class="connector-line"></div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Orçamento</h3>
+                        <p class="step-description">Receba um orçamento personalizado em menos de 8 segundos.</p>
+                    </div>
+                    
+                    <div class="step-connector">
+                        <div class="connector-line"></div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Pagamento</h3>
+                        <p class="step-description">Efectue o pagamento via MULTICAIXA Express.</p>
+                    </div>
+                    
+                    <div class="step-connector">
+                        <div class="connector-line"></div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Entrega</h3>
+                        <p class="step-description">Receba o trabalho pronto no prazo combinado, com qualidade garantida.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="section">
+            <div class="section-bg-shapes">
+                <div class="bg-shape bg-shape-4"></div>
+            </div>
+            <div class="container">
+                <h2 class="section-title">Sobre Nós</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-intro">O <strong>UniSuporte</strong> é a plataforma líder em Angola, especializada em oferecer apoio académico e técnico de classe mundial para estudantes universitários.</p>
+                        <p>Com uma equipe de profissionais altamente qualificados e uma infraestrutura de ponta, posicionamo-nos como a referência #1 do mercado, transmitindo a excelência e profissionalismo de uma organização de grande porte.</p>
+                        <div class="about-features">
+                            <div class="feature-item">✓ Suporte 24/7</div>
+                            <div class="feature-item">✓ Equipe Multidisciplinar</div>
+                            <div class="feature-item">✓ Tecnologia de Ponta</div>
+                            <div class="feature-item">✓ Resultados Comprovados</div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">+5K</div>
+                            <div class="stat-label">Estudantes Atendidos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">20</div>
+                            <div class="stat-label">Especialistas</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Taxa de Satisfação</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="embaixadores" class="section">
+            <div class="section-bg-shapes">
+                <div class="bg-shape bg-shape-6"></div>
+            </div>
+            <div class="container">
+                <div class="ambassador-promo-card">
+                    <div class="ambassador-tag">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.5rem;">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                        </svg>
+                        Programa de Embaixadores
+                    </div>
+                    
+                    <div class="ambassador-card-content">
+                        <div class="ambassador-main-content">
+                            <h2 class="ambassador-title">Ganha dinheiro a indicar amigos</h2>
+                            <p class="ambassador-description">Junta-te à nossa rede de embaixadores e recebe comissões por cada cliente que trouxeres.</p>
+                            
+                            <div class="ambassador-features-grid">
+                                <div class="ambassador-feature-item">
+                                    <div class="feature-icon-wrapper">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h4>Até 25% de comissão</h4>
+                                        <p>Ganha em cada venda que indicares</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="ambassador-feature-item">
+                                    <div class="feature-icon-wrapper">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h4>Dashboard de ganhos</h4>
+                                        <p>Acompanha tuas comissões em tempo real</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="ambassador-feature-item">
+                                    <div class="feature-icon-wrapper">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h4>Link personalizado</h4>
+                                        <p>Teu link único para partilhar</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="ambassador-feature-item">
+                                    <div class="feature-icon-wrapper">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h4>Bónus mensais</h4>
+                                        <p>Prémios extras para top embaixadores</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn-ambassador-white" onclick="document.getElementById('ambassadorForm').scrollIntoView({behavior: 'smooth'})">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.5rem;">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                </svg>
+                                Quero ser Embaixador
+                            </button>
+                        </div>
+                        
+                        <div class="ambassador-commission-circle">
+                            <div class="commission-percentage">25%</div>
+                            <div class="commission-label">Comissão máxima</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard de Afiliados (aparece após registro) -->
+                <div id="affiliate-dashboard" class="affiliate-dashboard" style="display: none;">
+                    <div class="dashboard-header">
+                        <h3>📊 Dashboard de Afiliados</h3>
+                        <button class="btn btn-outline btn-small" onclick="logoutAffiliate()">Sair</button>
+                    </div>
+                    
+                    <div class="dashboard-stats">
+                        <div class="dashboard-stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="total-referrals">0</div>
+                                <div class="stat-label">Indicações</div>
+                            </div>
+                        </div>
+                        <div class="dashboard-stat-card">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="total-conversions">0</div>
+                                <div class="stat-label">Conversões</div>
+                            </div>
+                        </div>
+                        <div class="dashboard-stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="total-earnings">0 Kz</div>
+                                <div class="stat-label">Ganhos Totais</div>
+                            </div>
+                        </div>
+                        <div class="dashboard-stat-card">
+                            <div class="stat-icon">💵</div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="pending-earnings">0 Kz</div>
+                                <div class="stat-label">Pendente</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-content">
+                        <div class="dashboard-section">
+                            <h4>🔗 Seu Link de Referência</h4>
+                            <div class="referral-link-container">
+                                <div class="referral-code-display">
+                                    <span class="code-label">Seu Código:</span>
+                                    <span class="code-value" id="affiliate-code">-</span>
+                                </div>
+                                <div class="referral-link-box">
+                                    <input type="text" id="referral-link" readonly value="" class="referral-link-input">
+                                    <button class="btn btn-primary btn-copy" onclick="copyReferralLink()">
+                                        <span class="copy-icon">📋</span>
+                                        Copiar
+                                    </button>
+                                </div>
+                                <p class="referral-note">Compartilhe este link e ganhe comissões a cada conversão!</p>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-section">
+                            <h4>📈 Histórico de Conversões</h4>
+                            <div id="conversions-list" class="conversions-list">
+                                <p class="empty-state">Ainda não há conversões. Compartilhe seu link para começar a ganhar!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testemunhos" class="section section-alt">
+            <div class="section-bg-shapes">
+                <div class="bg-shape bg-shape-7"></div>
+            </div>
+            <div class="container">
+                <div class="testimonials-header">
+                    <span class="testimonials-badge">Testemunhos</span>
+                    <h2 class="section-title testimonials-title">
+                        O que dizem os <span class="title-highlight">nossos clientes</span>
+                    </h2>
+                    <p class="section-subtitle">Centenas de estudantes já confiam em nós para o sucesso académico.</p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            "Salvaram o meu TCC! Entrega rápida e qualidade excelente. Recomendo a 100%."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <div class="avatar-fallback">JA</div>
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Jussara Ana</div>
+                                <div class="author-university">Estudante de Direito, UAN</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            "O serviço de suporte técnico é impecável. Recuperaram todos os meus ficheiros perdidos."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <div class="avatar-fallback">SJ</div>
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Sabalo José</div>
+                                <div class="author-university">Estudante de Engenharia, ISPTEC</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            "A subscrição VIP vale cada kwanza. Nunca mais perdi um prazo desde que comecei a usar."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <div class="avatar-fallback">LM</div>
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Laura Mango</div>
+                                <div class="author-university">Estudante de Medicina, UP</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            "Slides profissionais que impressionaram os professores. Passei com nota máxima!"
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <div class="avatar-fallback">CL</div>
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Carlos Loth</div>
+                                <div class="author-university">Estudante de Economia, ISPTEC</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            "Atendimento 24h realmente funciona. Responderam às 3 da manhã antes da entrega."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <div class="avatar-fallback">MA</div>
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Mário Aragão</div>
+                                <div class="author-university">Estudante de Contabilidade e Auditória, UNIA</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            "Instalaram todos os programas que precisava para o curso. Serviço rápido e eficiente."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <div class="avatar-fallback">CD</div>
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Cristiano Domingos</div>
+                                <div class="author-university">Estudante de Informática, UEM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <span>U</span>
+                        </div>
+                        <span class="footer-logo-text">UniSuporte</span>
+                    </div>
+                    <p class="footer-description">
+                        A plataforma #1 de suporte académico e técnico para estudantes universitários em Angola e Portugal.
+                    </p>
+                </div>
+
+                <div class="footer-col footer-services">
+                    <h3 class="footer-title">Serviços</h3>
+                    <ul class="footer-menu">
+                        <li><a href="#home">Trabalhos Académicos</a></li>
+                        <li><a href="#home">Slides de Apresentação</a></li>
+                        <li><a href="#home">Suporte Técnico</a></li>
+                        <li><a href="#home">Programas Académicos</a></li>
+                        <li><a href="#home">CVs Profissionais</a></li>
+                        <li><a href="#home">Conversão de Ficheiros</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-support">
+                    <h3 class="footer-title">Suporte</h3>
+                    <ul class="footer-menu">
+                        <li><a href="#home">Orçamento Grátis</a></li>
+                        <li><a href="#embaixadores">Programa de Afiliados</a></li>
+                        <li><a href="https://wa.me/244953369356">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-legal">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="footer-menu">
+                        <li><a href="#contato">Termos de Serviço</a></li>
+                        <li><a href="#contato">Política de Privacidade</a></li>
+                        <li><a href="#contato">Política de Reembolso</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 UniSuporte. Todos os direitos reservados.</p>
+                    <p class="footer-powered">Powered by <strong>Loth Corporation & Collabs.</strong></p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/unisuporte" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/unisuporte" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/unisuporte" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/unisuporte" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/244953369356" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        <span class="whatsapp-pulse"></span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

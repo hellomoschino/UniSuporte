@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Registro - UniSuporte">
+    <title>Criar Conta - UniSuporte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .auth-bg-shape {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            filter: blur(80px);
+            opacity: 0.1;
+        }
+
+        .auth-bg-shape-1 {
+            top: -200px;
+            right: -200px;
+        }
+
+        .auth-bg-shape-2 {
+            bottom: -200px;
+            left: -200px;
+        }
+
+        .auth-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .auth-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .auth-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-start);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .auth-logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .auth-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-subtitle {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .auth-form {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-start);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .form-checkbox input {
+            width: auto;
+            margin-top: 0.25rem;
+        }
+
+        .form-checkbox a {
+            color: var(--accent-start);
+            text-decoration: none;
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 0.875rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-auth-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-auth-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-accent-lg);
+        }
+
+        .auth-divider {
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .auth-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .auth-divider span {
+            background: var(--bg-primary);
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .auth-footer a {
+            color: var(--accent-start);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            color: #dc2626;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            background: rgba(34, 197, 94, 0.1);
+            color: #16a34a;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .auth-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .auth-title {
+                font-size: 1.75rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-bg-shapes">
+            <div class="auth-bg-shape auth-bg-shape-1"></div>
+            <div class="auth-bg-shape auth-bg-shape-2"></div>
+        </div>
+
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <div class="auth-logo-icon">U</div>
+                    <span class="auth-logo-text">UniSuporte</span>
+                </div>
+                <h1 class="auth-title">Criar Conta</h1>
+                <p class="auth-subtitle">Junte-se à nossa comunidade</p>
+            </div>
+
+            <div id="errorMessage" class="error-message"></div>
+            <div id="successMessage" class="success-message"></div>
+
+            <form id="registerForm" class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Nome</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="João">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Sobrenome</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Silva">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+244 953 369 356">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required placeholder="••••••••" minlength="6">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Senha</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="••••••••">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-checkbox">
+                        <input type="checkbox" name="terms" required>
+                        <span>Concordo com os <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-auth btn-auth-primary">Criar Conta</button>
+            </form>
+
+            <div class="auth-divider">
+                <span>ou</span>
+            </div>
+
+            <div class="auth-footer">
+                Já tem uma conta? <a href="login.html">Entrar</a>
+            </div>
+
+            <div class="auth-footer" style="margin-top: 1rem;">
+                <a href="index.html">← Voltar ao site</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Theme toggle
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+
+        // Register form handler
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Validações
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'As senhas não coincidem.';
+                errorMessage.classList.add('show');
+                return;
+            }
+
+            if (password.length < 6) {
+                errorMessage.textContent = 'A senha deve ter pelo menos 6 caracteres.';
+                errorMessage.classList.add('show');
+                return;
+            }
+
+            // Verificar se email já existe
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            if (users.find(u => u.email === email)) {
+                errorMessage.textContent = 'Este email já está registrado.';
+                errorMessage.classList.add('show');
+                return;
+            }
+
+            // Criar usuário
+            const newUser = {
+                id: Date.now().toString(),
+                firstName,
+                lastName,
+                email,
+                phone,
+                password, // Em produção, isso deve ser hash
+                role: email === 'admin@unisuporte.com' ? 'admin' : 'client', // Primeiro admin
+                createdAt: new Date().toISOString()
+            };
+
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // Mostrar mensagem de sucesso
+            successMessage.textContent = 'Conta criada com sucesso! Redirecionando...';
+            successMessage.classList.add('show');
+
+            // Redirecionar após 1 segundo
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
+
